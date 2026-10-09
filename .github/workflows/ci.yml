@@ -1,0 +1,29 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+
+  self-test:
+    # Runs the action itself on the test site, which has mistakes planted on purpose.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: seo
+        uses: ./
+        with:
+          path: tests/fixtures/site
+          site-url: https://acme.example
+          fail-on: never
+      - name: The planted mistakes were found
+        run: test "${{ steps.seo.outputs.errors }}" -gt 0

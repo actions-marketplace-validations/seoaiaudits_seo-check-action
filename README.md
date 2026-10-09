@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm run build          # your build; outputs to ./out here
-      - uses: kb6472-oss/seo-check-action@v1
+      - uses: seoaiaudits/seo-check-action@v1
         with:
           path: out
           site-url: https://example.com       # optional: lets the canonical checks compare
@@ -26,7 +26,7 @@ jobs:
 **Live site**: crawl a preview deployment or production:
 
 ```yaml
-      - uses: kb6472-oss/seo-check-action@v1
+      - uses: seoaiaudits/seo-check-action@v1
         with:
           start-url: https://example.com/
           max-pages: 100
@@ -42,7 +42,7 @@ jobs:
   seo:
     runs-on: ubuntu-latest
     steps:
-      - uses: kb6472-oss/seo-check-action@v1
+      - uses: seoaiaudits/seo-check-action@v1
         with:
           urls: |
             https://example.com/

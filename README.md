@@ -4,6 +4,8 @@ Catch SEO mistakes before they ship. SEO Check runs in your CI and fails the bui
 
 It checks either your **built HTML** (static sites: no network needed) or **live pages** (a preview deploy or production). Findings appear as annotations on the pull request and as a table in the job summary.
 
+Why we built it: [Catch SEO mistakes in CI with a free GitHub Action](https://dev.to/kaustavbasak/catch-seo-mistakes-in-ci-with-a-free-github-action-2hgn) (dev.to).
+
 ## Quick start
 
 **Static site (Next.js export, Astro, Hugo, Jekyll, Eleventy…)**: check the build output:
